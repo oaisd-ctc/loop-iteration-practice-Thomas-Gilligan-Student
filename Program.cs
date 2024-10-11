@@ -4,7 +4,7 @@ public class Program {
 
     public static void Main(string[] args) {
         Console.Clear();
-/*
+
         write1ThroughN_While(-1);
         write1ThroughN_While(5);
         write1ThroughN_While(0);
@@ -42,14 +42,12 @@ public class Program {
         findSumOfOddNumbers(2);
         findSumOfOddNumbers(25);
         findSumOfOddNumbers(-25);
-*/
+
         outputRightTriangle(4);
         outputRightTriangle(6);
         outputRightTriangle(-4);
         outputRightTriangle(-6);
         outputRightTriangle(0);
-
-        // outOfRangeMessage();
 
     }
 
@@ -149,10 +147,24 @@ public class Program {
     }
 
     public static void outputRightTriangle(int _base){
+        string line = "";
         if(_base > 0){
-
+            for(int i = 1; i <= _base; i++){
+                line += "*";
+                Console.WriteLine(line);
+            }
         } else if(_base < 0){
-
+            for(int i = -1; i >= _base; i--){
+                line += "*";
+            }
+            int x = Math.Abs(_base);
+            for(int i = -1; i >= _base; i--){
+                line = line.Substring(0, x);
+                x -= 1;
+                Console.WriteLine(line);
+            }
+        } else {
+            outOfRangeMessage(_base);
         }
     }
 
